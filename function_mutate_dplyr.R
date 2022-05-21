@@ -37,3 +37,39 @@ starwars %>%
     hair_color = ifelse(is.na(hair_color), "desconhecido", hair_color)
   ) %>%
   select(name, hair_color)
+
+# Parâmetros especiais: .keep all, used, unused, none -------------------------------------------------------------------------------------
+
+starwars %>%
+  mutate(
+    hair_color = ifelse(is.na(hair_color), "desconhecido", hair_color), .keep = "all"
+  )
+
+starwars %>%
+  mutate(
+    hair_color = ifelse(is.na(hair_color), "desconhecido", hair_color), .keep = "used"
+  )
+
+starwars %>%
+  mutate(
+    hair_color = ifelse(is.na(hair_color), "desconhecido", hair_color), .keep = "unused"
+  )
+
+starwars %>%
+  mutate(
+    hair_color = ifelse(is.na(hair_color), "desconhecido", hair_color), .keep = "none"
+  )
+
+# Parâmetros especiais: .before, .after ----------------------------------------------------------------------------------------------------
+
+### Coloca a nova coluna antes ou após uma determinada coluna
+
+starwars %>%
+  mutate(
+    peso_acima_100 = ifelse(mass > 100, "S", "N"), .after = "name"
+  ) 
+
+starwars %>%
+  mutate(
+    peso_acima_100 = ifelse(mass > 100, "S", "N"), .after = "mass"
+  ) 

@@ -29,3 +29,11 @@ starwars %>%
     peso_acima_100 = ifelse(mass > 100, "S", "N")
   ) %>%
   select(name, mass, peso_acima_100)
+
+# Substituir hair_color NA por "desconhecido" ----------------------------------------------------------------------------------------------
+
+starwars %>%
+  mutate(
+    hair_color = ifelse(is.na(hair_color), "desconhecido", hair_color)
+  ) %>%
+  select(name, hair_color)

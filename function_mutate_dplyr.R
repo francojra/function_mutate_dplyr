@@ -12,3 +12,12 @@ library(tidyverse)
 
 data("starwars")
 starwars
+
+# Converter altura de centímetros para metros (sobrescrever) -------------------------------------------------------------------------------
+
+### Sobrescrever apenas substitui a coluna já existente
+
+starwars %>%
+  mutate(
+    height = height / 100
+  )
